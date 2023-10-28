@@ -28,7 +28,7 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route
-          path="/contacts"
+          path="contacts"
           element={
             <PrivateRoute redirectTo="/login">
               <ContactsPage />
@@ -36,7 +36,7 @@ export const App = () => {
           }
         />
         <Route
-          path="/login"
+          path="login"
           element={
             <PublicRoute redirectTo="/contacts">
               <LoginPage />
@@ -44,7 +44,7 @@ export const App = () => {
           }
         />
         <Route
-          path="/register"
+          path="register"
           element={
             <PublicRoute redirectTo="/contacts">
               <Register />

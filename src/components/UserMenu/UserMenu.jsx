@@ -4,7 +4,6 @@ import { logOutUser } from 'redux/auth/operations';
 import { authToken, authUser } from 'redux/auth/selectors';
 
 import Avatar from '@mui/material/Avatar';
-import { useNavigate } from 'react-router-dom';
 import {
   StyledLink,
   StyledName,
@@ -15,10 +14,9 @@ import {
 const UserMenu = () => {
   const isAuth = useSelector(authToken);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const handleClick = () => {
     isAuth && dispatch(logOutUser());
-    navigate('/login');
   };
   const user = useSelector(authUser);
   return (
