@@ -8,9 +8,9 @@ import { refreshUser } from 'redux/auth/operations';
 import Layout from 'pages/Layout';
 import { authIsRefreshing } from 'redux/auth/selectors';
 import Loader from './Loader/Loader';
-import HomePage from 'pages/HomePage';
+
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
-// const Home = lazy(() => import('pages/HomePage'));
+const HomePage = lazy(() => import('pages/HomePage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const Register = lazy(() => import('pages/Register'));
 
