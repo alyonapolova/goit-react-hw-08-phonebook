@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from 'redux/auth/operations';
 import { authError, authLoggedIn } from 'redux/auth/selectors';
 import { resetError } from 'redux/auth/slice';
-import { Navigate } from 'react-router';
+import { Navigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const error = useSelector(authError);
