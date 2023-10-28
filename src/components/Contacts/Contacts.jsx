@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Button,
@@ -14,12 +14,8 @@ import {
 } from '@mui/material';
 
 import { EditContactForm } from 'components/Form/FormUpdate';
-import {
-  deleteContact,
-  getContacts,
-  updateContact,
-} from 'redux/contacts/operations';
-import { authLoggedIn } from 'redux/auth/selectors';
+import { deleteContact, updateContact } from 'redux/contacts/operations';
+
 import {
   selectorContacts,
   selectorFilteredContacts,
@@ -33,15 +29,11 @@ const defaultTheme = createTheme();
 export default function Contacts() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectorContacts);
-  const isLoggedIn = useSelector(authLoggedIn);
+
   const isLoading = useSelector(selectorIsLoading);
   const [editContact, setEditContact] = useState(null);
 
   const filteredContacts = useSelector(selectorFilteredContacts);
-
-  useEffect(() => {
-    isLoggedIn && dispatch(getContacts());
-  }, [isLoggedIn, dispatch]);
 
   const handleDelete = id => {
     dispatch(deleteContact(id));

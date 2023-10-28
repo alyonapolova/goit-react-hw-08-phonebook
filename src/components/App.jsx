@@ -12,15 +12,17 @@ import Loader from './Loader/Loader';
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
 const HomePage = lazy(() => import('pages/HomePage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
-const Register = lazy(() => import('pages/Register'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
 
   const isRefreshing = useSelector(authIsRefreshing);
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
   return isRefreshing ? (
     <Loader />
   ) : (
@@ -47,7 +49,7 @@ export const App = () => {
           path="register"
           element={
             <PublicRoute redirectTo="/contacts">
-              <Register />
+              <RegisterPage />
             </PublicRoute>
           }
         />

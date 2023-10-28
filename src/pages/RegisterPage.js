@@ -7,7 +7,7 @@ import { authError } from 'redux/auth/selectors';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { resetError } from 'redux/auth/slice';
 
-const Register = () => {
+const RegisterPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const error = useSelector(authError);
@@ -28,4 +28,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterPage;
