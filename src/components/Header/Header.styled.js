@@ -7,7 +7,6 @@ export const Header = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
 `;
 export const StyledLink = styled(NavLink)`
   color: white;

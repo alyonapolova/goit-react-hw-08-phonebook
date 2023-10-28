@@ -1,14 +1,12 @@
-import PrivateRoute from 'guards/PrivateRoute/PrivateRoute';
-import PublicRoute from 'guards/PublicRoute/PublicRoute';
-import { lazy } from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/operations';
 import Layout from 'pages/Layout';
 import { authIsRefreshing } from 'redux/auth/selectors';
 import Loader from './Loader/Loader';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { lazy, useEffect } from 'react';
+import PrivateRoute from 'guards/PrivateRoute/PrivateRoute';
+import PublicRoute from 'guards/PublicRoute/PublicRoute';
+import { Route, Routes } from 'react-router-dom';
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
 const HomePage = lazy(() => import('pages/HomePage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
