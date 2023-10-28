@@ -1,5 +1,5 @@
 import PrivateRoute from 'guards/PrivateRoute/PrivateRoute';
-import PublicRoute from 'guards/PublicRoute/PublicRoute';
+// import PublicRoute from 'guards/PublicRoute/PublicRoute';
 import { lazy } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,28 +28,15 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route
-          index
+          path="/contacts"
           element={
-            <PublicRoute redirectTo="/contacts" component={<HomePage />} />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <PublicRoute redirectTo="/contacts" component={<RegisterPage />} />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <PublicRoute redirectTo="/contacts" component={<LoginPage />} />
-          }
-        />
-        <Route
-          path="/tasks"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            <PrivateRoute redirectTo="/login">
+              <ContactsPage />
+            </PrivateRoute>
           }
         />
       </Route>

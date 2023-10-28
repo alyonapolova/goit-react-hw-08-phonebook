@@ -3,10 +3,10 @@ import { Navigate } from 'react-router-dom';
 
 import { authIsRefreshing, authLoggedIn } from 'redux/auth/selectors';
 
-const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
+const PrivateRoute = ({ children, redirectTo = '/' }) => {
   const isLoggedIn = useSelector(authLoggedIn);
   const isRefreshing = useSelector(authIsRefreshing);
   const shouldRedirect = !isLoggedIn && !isRefreshing;
-  return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
+  return shouldRedirect ? <Navigate to={redirectTo} /> : children;
 };
 export default PrivateRoute;
