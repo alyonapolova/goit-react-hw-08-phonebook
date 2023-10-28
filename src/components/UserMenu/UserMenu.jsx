@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { logOutUser } from 'redux/auth/operations';
-import { authToken, authUser } from 'redux/auth/selectors';
+import { authUser } from 'redux/auth/selectors';
 
 import Avatar from '@mui/material/Avatar';
 import {
@@ -12,13 +12,10 @@ import {
 } from './UserMenu.styled';
 
 const UserMenu = () => {
-  const isAuth = useSelector(authToken);
   const dispatch = useDispatch();
 
-  const handleClick = () => {
-    isAuth && dispatch(logOutUser());
-  };
   const user = useSelector(authUser);
+
   return (
     <StyledNav>
       <StyledUser>
@@ -27,7 +24,7 @@ const UserMenu = () => {
         </Avatar>
         <StyledName>Hi, {user.name}!</StyledName>
       </StyledUser>
-      <StyledLink onClick={handleClick}>LogOut</StyledLink>
+      <StyledLink onClick={() => dispatch(logOutUser())}>LogOut</StyledLink>
     </StyledNav>
   );
 };

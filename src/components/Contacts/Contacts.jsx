@@ -29,7 +29,6 @@ const defaultTheme = createTheme();
 export default function Contacts() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectorContacts);
-
   const isLoading = useSelector(selectorIsLoading);
   const [editContact, setEditContact] = useState(null);
 
@@ -75,51 +74,54 @@ export default function Contacts() {
         </Box>
 
         <Filter />
-        {isLoading && <Loader />}
-        <Container sx={{ py: 8 }} maxWidth="lg">
-          <Grid container spacing={4}>
-            {contacts &&
-              filteredContacts.map(contact => (
-                <Grid item key={contact.id} xs={12} sm={5} md={6}>
-                  {contact === editContact ? (
-                    <EditContactForm
-                      contact={editContact}
-                      onUpdate={handleUpdate}
-                    />
-                  ) : (
-                    <Card
-                      sx={{
-                        height: '100%',
-                        display: 'flex',
-                        flexDirection: 'column',
-                      }}
-                    >
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {contact.name}
-                        </Typography>
-                        <Typography>{contact.number}</Typography>
-                      </CardContent>
-                      <CardActions>
-                        <Button
-                          size="small"
-                          onClick={() => handleEdit(contact)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          size="small"
-                          onClick={() => handleDelete(contact.id)}
-                        >
-                          Delete
-                        </Button>
-                      </CardActions>
-                    </Card>
-                  )}
-                </Grid>
-              ))}
-          </Grid>
-        </Container>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <Container sx={{ py: 8 }} maxWidth="lg">
+            <Grid container spacing={4}>
+              {contacts &&
+                filteredContacts.map(contact => (
+                  <Grid item key={contact.id} xs={12} sm={5} md={6}>
+                    {contact === editContact ? (
+                      <EditContactForm
+                        contact={editContact}
+                        onUpdate={handleUpdate}
+                      />
+                    ) : (
+                      <Card
+                        sx={{
+                          height: '100%',
+                          display: 'flex',
+                          flexDirection: 'column',
+                        }}
+                      >
+                        <CardContent sx={{ flexGrow: 1 }}>
+                          <Typography gutterBottom variant="h5" component="h2">
+                            {contact.name}
+                          </Typography>
+                          <Typography>{contact.number}</Typography>
+                        </CardContent>
+                        <CardActions>
+                          <Button
+                            size="small"
+                            onClick={() => handleEdit(contact)}
+                          >
+                            Edit
+                          </Button>
+                          <Button
+                            size="small"
+                            onClick={() => handleDelete(contact.id)}
+                          >
+                            Delete
+                          </Button>
+                        </CardActions>
+                      </Card>
+                    )}
+                  </Grid>
+                ))}
+            </Grid>
+          </Container>
+        )}
       </main>
     </ThemeProvider>
   );

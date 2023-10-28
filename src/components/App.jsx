@@ -28,29 +28,28 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
         <Route
-          path="contacts"
+          index
           element={
-            <PrivateRoute redirectTo="/login">
-              <ContactsPage />
-            </PrivateRoute>
+            <PublicRoute redirectTo="/contacts" component={<HomePage />} />
           }
         />
         <Route
-          path="login"
+          path="/register"
           element={
-            <PublicRoute redirectTo="/contacts">
-              <LoginPage />
-            </PublicRoute>
+            <PublicRoute redirectTo="/contacts" component={<RegisterPage />} />
           }
         />
         <Route
-          path="register"
+          path="/login"
           element={
-            <PublicRoute redirectTo="/contacts">
-              <RegisterPage />
-            </PublicRoute>
+            <PublicRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/tasks"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
       </Route>
