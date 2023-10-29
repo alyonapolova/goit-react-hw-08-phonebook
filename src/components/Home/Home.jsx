@@ -25,12 +25,7 @@ const Home = () => {
         </Stack>
       </LeftDiv>
       <RightDiv>
-        <img
-          alt="Contact book"
-          src={img}
-          width="400"
-          onClick={() => navigate('/contacts')}
-        />
+        <img alt="Contact book" src={img} width="400" />
       </RightDiv>
     </HomeDiv>
   );
