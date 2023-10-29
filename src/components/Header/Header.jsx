@@ -13,7 +13,7 @@ const HeaderMenu = () => {
       <Header>
         <PermanentMenu>
           <StyledLink to="/">Home</StyledLink>
-          {isLoggedIn && <StyledLink to="/contacts">Contacts</StyledLink>}
+          <StyledLink to="/contacts">Contacts</StyledLink>
         </PermanentMenu>
         {isLoggedIn ? <UserMenu /> : <AuthMenu />}
       </Header>
