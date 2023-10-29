@@ -28,23 +28,21 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route
-          path="register"
+          path="/register"
           element={
             <PublicRoute redirectTo="/contacts" component={<RegisterPage />} />
           }
         />
         <Route
-          path="login"
+          path="/login"
           element={
             <PublicRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         />
         <Route
-          path="contacts"
+          path="/contacts"
           element={
-            <PrivateRoute redirectTo="/login">
-              <ContactsPage />
-            </PrivateRoute>
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
       </Route>
