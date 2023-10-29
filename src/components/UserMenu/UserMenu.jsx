@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { logOutUser } from 'redux/auth/operations';
-import { authUser } from 'redux/auth/selectors';
-
+import { selectUser } from 'redux/auth/selectors';
 import Avatar from '@mui/material/Avatar';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import {
   StyledLink,
   StyledName,
@@ -11,10 +10,9 @@ import {
   StyledUser,
 } from './UserMenu.styled';
 
-const UserMenu = () => {
+export const UserMenu = () => {
   const dispatch = useDispatch();
-
-  const user = useSelector(authUser);
+  const user = useSelector(selectUser);
 
   return (
     <StyledNav>
@@ -28,4 +26,3 @@ const UserMenu = () => {
     </StyledNav>
   );
 };
-export default UserMenu;
