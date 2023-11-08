@@ -1,5 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { HomeDiv, LeftDiv, RightDiv, Title2 } from './Home.styled';
+import {
+  HomeDiv,
+  LeftDiv,
+  ResponsiveImage,
+  RightDiv,
+  Title1,
+  Title2,
+} from './Home.styled';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import img from './img.jpeg';
@@ -9,7 +16,7 @@ const HomeInfo = () => {
   return (
     <HomeDiv>
       <LeftDiv>
-        <h1>The Free Online Contact Book </h1>
+        <Title1>The Free Online Contact Book </Title1>
         <Title2>
           The Easiest Way to Collect All Your Friends' Phone Numbers
         </Title2>
@@ -26,7 +33,7 @@ const HomeInfo = () => {
         </Stack>
       </LeftDiv>
       <RightDiv>
-        <img alt="Contact book" src={img} width="400" />
+        <ResponsiveImage alt="Contact book" src={img} />
       </RightDiv>
     </HomeDiv>
   );
