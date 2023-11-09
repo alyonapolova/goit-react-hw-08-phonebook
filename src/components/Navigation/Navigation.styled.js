@@ -14,7 +14,6 @@ export const PermanentMenu = styled.div`
     gap: 20px;
     align-items: center;
     justify-content: center;
-    margin-right: 35px;
   }
 
   @media screen and (min-width: 1024px) {
@@ -22,7 +21,6 @@ export const PermanentMenu = styled.div`
     gap: 25px;
     align-items: center;
     justify-content: center;
-    margin-right: 35px;
   }
 `;
 
@@ -34,9 +32,6 @@ export const StyledLink = styled(NavLink)`
     color: violet;
   }
 
-  &:hover {
-    text-decoration: underline;
-  }
   @media screen and (min-width: 375px) {
     font-size: 14px;
   }

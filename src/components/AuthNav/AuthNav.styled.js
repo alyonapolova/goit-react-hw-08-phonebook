@@ -9,10 +9,6 @@ export const StyledLink = styled(NavLink)`
     color: violet;
   }
 
-  &:hover {
-    text-decoration: underline;
-  }
-
   @media screen and (min-width: 375px) {
     font-size: 14px;
   }
@@ -27,9 +23,7 @@ export const StyledNav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  @media screen and (min-width: 375px) {
-  }
+  gap: 5px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;

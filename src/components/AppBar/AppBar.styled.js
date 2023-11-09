@@ -7,6 +7,8 @@ export const Header = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 55px;
+
   @media screen and (min-width: 375px) {
     padding: 15px 25px;
   }

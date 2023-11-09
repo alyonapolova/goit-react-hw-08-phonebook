@@ -25,7 +25,9 @@ export const LeftDiv = styled.div`
   gap: 25px;
 `;
 
-export const RightDiv = styled.div``;
+export const RightDiv = styled.div`
+  margin: 0 auto;
+`;
 export const Title1 = styled.h2`
   text-align: center;
   font-size: 24px;
