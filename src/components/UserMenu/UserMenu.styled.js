@@ -28,14 +28,13 @@ export const StyledLink = styled(NavLink)`
   color: white;
   text-decoration: none;
   font-size: 12px;
-  &.active {
-    color: violet;
-  }
 
   &:hover {
-    text-decoration: underline;
+    color: #45d4f5;
   }
-
+  &:focus {
+    color: #45d4f5;
+  }
   @media screen and (min-width: 375px) {
     font-size: 14px;
   }
